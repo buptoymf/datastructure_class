@@ -1,0 +1,48 @@
+INSERT INTO  student
+VALUES('S356','MingFei','OuYang','1999-6-24','M','China',NULL,'Waiting','IoT');
+
+INSERT INTO  contracts VALUES('101089','2017-9-1',3,'San Zhang','S287','S310','Hall Gryffindor','123','2017-9-5',NULL);
+
+INSERT INTO  invoices VALUES('1108645819','2019-2-5','103523',3,400,'John Doe','S310','S123',NULL,NULL,'2019-2-20','2019-2-25');
+
+
+select contractnumber,date,duration,studentname,studentnumber,placenumber,whichhallorflat,roomnumber,datemovingin,datemovingout from Contracts 
+where Student s.StudentNumber=c.StudentNumber
+order by s.LastName;
+
+select *
+from contracts
+
+where DateMovingout between "2018-06-01" and "2018-09-01";
+
+select count(paymentdue) from invoices
+where studentname="John";
+
+
+select *
+from studentflatinspections 
+where SatisfactoryCondition="no";
+
+
+select studentname,studentnumber,Placenumber,Roomnumber from contracts
+where WhichHallorFlat="Hall Gryffindor";
+
+
+
+select min(Monthlyrate),max(Monthlyrate),avg(Monthlyrate) from Hallrooms
+order by Hallname;
+
+select * from Invoices
+where FirstreminderDate<>NULL or SecondreminderDate<>NULL;
+
+select Studentname from Invoices
+where Paymentmethod="Cash";
+
+select count(PaymentDue) from invoices
+where PaymentDate >"2018-9-1" and PaymentDate <"2019-8-31";
+
+select studentname,Student Number from invoices
+where FirstreminderDate=NULL;
+
+
+
